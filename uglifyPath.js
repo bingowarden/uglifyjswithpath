@@ -3,11 +3,12 @@ var uglify = require('uglify-js');
 var path = require('path');
 
 var _dir = __dirname;
+var _sep = path.sep;
 
 function readPath(tp){
 	var _basedir = path.normalize(tp) + 'after';
 	_basedir = path.join(_dir,_basedir);
-	var _dirdeep = _basedir.split(path.sep).length;
+	var _dirdeep = _basedir.split(path._sep).length;
 
 	fs.exists(_basedir,function(exists){
 		if(!exists){
@@ -31,13 +32,13 @@ function readPath(tp){
 
 	function statfile(paths,name){
 		fs.stat(paths,function(err,stat){
-			var patharr = paths.split(path.sep);
+			var patharr = paths.split(_sep);
 			if(patharr.length>_dirdeep){
 				for(var i=0;i<_dirdeep;i++){
 					patharr.shift();
 				}
 			}
-			var realpath = path.join(_basedir,patharr.join(path.sep));
+			var realpath = path.join(_basedir,patharr.join(_sep));
 			if(!stat.isFile()){
 				fs.mkdir(realpath,function(){
 					console.log('path: '+realpath+' created ~');
@@ -65,7 +66,7 @@ function readPath(tp){
 var basepath = process.argv[2];
 
 if(basepath){
-	var reg = new RegExp('^\.\\'+path.sep+'\.*[\\w]+$');
+	var reg = new RegExp('^\.\\'+_sep+'\.*[\\w]+$');
 	if(reg.test(basepath)){
 		readPath(basepath);
 	}else{
