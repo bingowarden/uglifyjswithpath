@@ -1,0 +1,21 @@
+{
+  "name": "uglifyjswithpath",
+  "version": "1.0.0",
+  "description": "uglify all javascript files in a path",
+  "main": "uglifyPath.js",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bingowarden/uglifyjswithpath.git"
+  },
+  "keywords": [
+    "uglifyjs"
+  ],
+  "dependencies ":{
+	"uglifyjs" : "1.2.5"
+  },
+  "author": "bingowarden",
+  "license": "BSD"
+}
