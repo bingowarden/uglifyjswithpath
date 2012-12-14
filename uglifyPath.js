@@ -8,7 +8,7 @@ var _sep = path.sep;
 function readPath(tp){
 	var _basedir = path.normalize(tp) + 'after';
 	_basedir = path.join(_dir,_basedir);
-	var _dirdeep = _basedir.split(path._sep).length;
+	var _dirdeep = _basedir.split(_sep).length;
 
 	fs.exists(_basedir,function(exists){
 		if(!exists){
